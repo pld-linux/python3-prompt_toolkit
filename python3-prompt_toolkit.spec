@@ -7,15 +7,15 @@
 Summary:	Library for building powerful interactive command lines in Python
 Summary(pl.UTF-8):	Biblioteka do budowania interaktywnych wierszy poleceń w Pythonie
 Name:		python3-%{module}
-Version:	3.0.5
-Release:	3
+Version:	3.0.41
+Release:	1
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://github.com/prompt-toolkit/python-prompt-toolkit/releases
-Source0:	https://github.com/jonathanslenders/python-prompt-toolkit/archive/%{version}/python-prompt-toolkit-%{version}.tar.gz
-# Source0-md5:	b1a2403b503177ddb5873630123fd533
-URL:		https://github.com/jonathanslenders/python-prompt-toolkit
-BuildRequires:	python3-modules >= 1:3.6.1
+Source0:	https://github.com/prompt-toolkit/python-prompt-toolkit/archive/%{version}/python-prompt-toolkit-%{version}.tar.gz
+# Source0-md5:	c7042d8cde35eb56c396c3ce0840a5b5
+URL:		https://github.com/prompt-toolkit/python-prompt-toolkit
+BuildRequires:	python3-modules >= 1:3.7
 BuildRequires:	python3-setuptools
 %if %{with tests}
 BuildRequires:	python3-wcwidth
@@ -27,7 +27,7 @@ BuildRequires:	sed >= 4.0
 %if %{with doc}
 BuildRequires:	sphinx-pdg
 %endif
-Requires:	python3-modules >= 1:3.6.1
+Requires:	python3-modules >= 1:3.7
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -58,6 +58,8 @@ Dokumentacja API modułu prompt_toolkit.
 
 %if %{with tests}
 # test_print_tokens expects sequences emitted for xterm
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
+PYTHONPATH=$(pwd)/src \
 TERM=xterm \
 %{__python3} -m pytest tests
 %endif
@@ -81,7 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS.rst CHANGELOG LICENSE README.rst
+%doc AUTHORS.rst CHANGELOG LICENSE PROJECTS.rst README.rst
 %{py3_sitescriptdir}/prompt_toolkit
 %{py3_sitescriptdir}/prompt_toolkit-%{version}-py*.egg-info
 %{_examplesdir}/python3-%{module}-%{version}
