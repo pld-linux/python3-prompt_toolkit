@@ -7,13 +7,13 @@
 Summary:	Library for building powerful interactive command lines in Python
 Summary(pl.UTF-8):	Biblioteka do budowania interaktywnych wierszy poleceń w Pythonie
 Name:		python3-%{module}
-Version:	3.0.52
+Version:	3.0.53
 Release:	1
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://github.com/prompt-toolkit/python-prompt-toolkit/releases
 Source0:	https://github.com/prompt-toolkit/python-prompt-toolkit/archive/%{version}/python-prompt-toolkit-%{version}.tar.gz
-# Source0-md5:	f5ea9f7ebf37994a2a17512c5de727af
+# Source0-md5:	0c4a45ae51c2e35c50d4f9a9ffc130e7
 URL:		https://github.com/prompt-toolkit/python-prompt-toolkit
 BuildRequires:	python3-build
 BuildRequires:	python3-installer
